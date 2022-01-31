@@ -200,7 +200,7 @@ func convertToMaps(s3output *s3.ListObjectsOutput, prefix string) ([]string, map
 }
 
 func toHTML(files []string, updatedAt map[string]time.Time) string {
-	html := "<!DOCTYPE html><html><body><ul>"
+	html := "<!DOCTYPE html><html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"></head><body><ul>"
 	for _, file := range files {
 		html += "<li><a href=\"" + file + "\">" + file + "</a>"
 		if timestamp, ok := updatedAt[file]; ok {
