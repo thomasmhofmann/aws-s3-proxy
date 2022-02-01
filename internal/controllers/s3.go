@@ -54,6 +54,7 @@ func AwsS3(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		path = aws.StringValue(replaced) + path[idx+12:]
+		http.Redirect(w,r, path, 302)
 	}
 	// Ends with / -> listing or index.html
 	if strings.HasSuffix(path, "/") {
